@@ -42,7 +42,7 @@ h2 em,h1 em{font-style:italic;color:var(--accent);padding-bottom:4px}
 .btn i{font-size:22px}
 .btn-wa{background:var(--wa);color:#fff}
 .btn-wa:hover{background:var(--wa-hover)}
-.btn-ghost{border:1.5px solid rgba(255,255,255,.35);color:#fff;background:rgba(17,17,19,.35);backdrop-filter:blur(6px)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.3);color:#fff;background:transparent}
 .btn-ghost:hover{border-color:var(--accent)}
 .btn-sm{min-height:44px;padding:0 16px;font-size:14px}
 .btn-sm i{font-size:19px}
@@ -57,16 +57,15 @@ h2 em,h1 em{font-style:italic;color:var(--accent);padding-bottom:4px}
 .logo small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-top:3px;font-weight:600}
 
 /* hero */
-.hero{position:relative;min-height:100svh;min-height:100dvh;display:flex;align-items:flex-end;padding:0;overflow:hidden}
-.hero-img{position:absolute;inset:0}
-.hero-img img{width:100%;height:100%;object-fit:cover;object-position:60% 30%}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,17,19,.55) 0%,rgba(17,17,19,.15) 30%,rgba(17,17,19,.75) 62%,#111113 100%)}
-.hero .wrap{position:relative;z-index:2;padding-top:110px;padding-bottom:40px}
+.hero{position:relative;padding:0 0 8px;background:radial-gradient(120% 60% at 50% 0%,#221d16 0%,var(--bg) 70%)}
+.hero .wrap{padding-top:100px;padding-bottom:28px}
+.hero-img{max-width:1120px;margin:0 auto;padding:0 20px}
+.hero-img img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 35%;border-radius:20px;border:1px solid var(--line);background:var(--surface-2)}
 .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
 .hero h1{font-size:clamp(2.7rem,11vw,4.6rem);max-width:13ch;margin-bottom:14px;line-height:1.05}
-.hero p.sub{color:#dedad4;max-width:40ch;margin-bottom:18px}
+.hero p.sub{color:var(--muted);max-width:40ch;margin-bottom:18px}
 .trust{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;list-style:none}
-.trust li{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:var(--pill);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);font-size:13px;font-weight:600;backdrop-filter:blur(8px)}
+.trust li{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:var(--pill);background:var(--surface);border:1px solid var(--line);font-size:13px;font-weight:600}
 .trust i{color:var(--accent);font-size:16px}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px}
 .cta-row .btn{flex:1 1 200px}
@@ -74,7 +73,7 @@ h2 em,h1 em{font-style:italic;color:var(--accent);padding-bottom:4px}
 /* why */
 .why-grid{display:grid;gap:14px;margin-top:32px}
 .why{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;padding:0 20px 20px;overflow:hidden;border-radius:var(--radius);background:var(--surface);border:1px solid var(--line)}
-.why>img{width:calc(100% + 40px);margin:0 -20px 2px;aspect-ratio:16/10;object-fit:cover;background:var(--surface-2)}
+.why>img{flex:none;width:calc(100% + 40px);margin:0 -20px 2px;aspect-ratio:16/10;object-fit:cover;background:var(--surface-2)}
 .why>div{flex:1;min-width:0}
 .why i{font-size:26px;color:var(--accent);flex:none;margin-top:2px}
 .why h3{font-family:var(--sans);font-size:17px;font-weight:700;margin-bottom:4px;letter-spacing:0;line-height:1.3}
@@ -103,7 +102,7 @@ h2 em,h1 em{font-style:italic;color:var(--accent);padding-bottom:4px}
 
 /* packages */
 .pkgs{display:grid;gap:16px;margin-top:30px}
-.pkg-img{width:calc(100% + 48px);margin:-24px -24px 4px;aspect-ratio:16/10;object-fit:cover;background:var(--surface-2)}
+.pkg-img{flex:none;align-self:flex-start;width:calc(100% + 48px);margin:-24px -24px 4px;aspect-ratio:16/10;object-fit:cover;background:var(--surface-2)}
 .pkg{overflow:hidden;border-radius:var(--radius);padding:24px;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;gap:14px}
 .pkg{position:relative}
 .pkg.best{border-color:var(--accent);background:linear-gradient(180deg,#231f18,#18181b 55%)}
@@ -178,6 +177,7 @@ h2 em,h1 em{font-style:italic;color:var(--accent);padding-bottom:4px}
   .band .inner{padding:72px 56px}
   .wa-bar{display:none}
   .cta-row .btn{flex:0 0 auto}
+  .hero-img img{aspect-ratio:16/8}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -188,7 +188,7 @@ h2 em,h1 em{font-style:italic;color:var(--accent);padding-bottom:4px}
 </head>
 <body>
 
-<header class="hdr" id="hdr">
+<header class="hdr solid" id="hdr">
   <div class="wrap">
     <a href="#top" class="logo" aria-label="Kohinoor Studio home">
       <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1d1c1a" stroke="rgba(200,169,126,.45)"/><path d="M20 24h24l8 8-20 20-20-20z" fill="none" stroke="#c8a97e" stroke-width="3" stroke-linejoin="round"/><path d="M12 32h40M26 24l6 28 6-28" fill="none" stroke="#c8a97e" stroke-width="2" stroke-linejoin="round"/></svg>
@@ -201,9 +201,6 @@ h2 em,h1 em{font-style:italic;color:var(--accent);padding-bottom:4px}
 <main class="main" id="top">
 
   <section class="hero" aria-label="Kohinoor Studio">
-    <div class="hero-img">
-      <img src="https://images.unsplash.com/photo-1630526720753-aa4e71acf67d?fm=jpg&q=72&auto=format&fit=crop&w=1400&h=1800" alt="Bride and groom in traditional Indian wedding attire by a river" fetchpriority="high" width="1400" height="1800">
-    </div>
     <div class="wrap">
       <h1>Your big day, <em>framed forever.</em></h1>
       <p class="sub">Photography, cinematic video, pre-wedding shoots and premium albums. Every package available.</p>
@@ -218,6 +215,9 @@ h2 em,h1 em{font-style:italic;color:var(--accent);padding-bottom:4px}
         <a class="btn btn-wa" data-whatsapp href="https://wa.link/mahadevid9" target="_blank" rel="noopener noreferrer"><i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i>Contact us on WhatsApp</a>
         <a class="btn btn-ghost" href="#packages"><i class="ph ph-package" aria-hidden="true"></i>View Packages</a>
       </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1630526720753-aa4e71acf67d?fm=jpg&q=72&auto=format&fit=crop&w=1400&h=1800" alt="Bride and groom in traditional Indian wedding attire by a river" fetchpriority="high" width="1400" height="1800">
     </div>
   </section>
 
@@ -451,7 +451,7 @@ h2 em,h1 em{font-style:italic;color:var(--accent);padding-bottom:4px}
   var heroOut=false,footIn=false;
   function upd(){bar.classList.toggle('on',heroOut&&!footIn)}
   if('IntersectionObserver' in window){
-    new IntersectionObserver(function(e){heroOut=!e[0].isIntersecting;hdr.classList.toggle('solid',e[0].intersectionRatio<0.85);upd()},{threshold:[0,0.85]}).observe(hero);
+    new IntersectionObserver(function(e){heroOut=!e[0].isIntersecting;upd()},{threshold:[0,0.85]}).observe(hero);
     new IntersectionObserver(function(e){footIn=e[0].intersectionRatio>0.35;upd()},{threshold:[0,0.35]}).observe(cf);
     var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{rootMargin:'0px 0px -8% 0px'});
     document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
